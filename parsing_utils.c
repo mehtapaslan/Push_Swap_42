@@ -6,7 +6,7 @@
 /*   By: mehaslan <mehaslan@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/19 02:36:28 by mehaslan          #+#    #+#             */
-/*   Updated: 2026/09/21 15:12:32 by mehaslan         ###   ########.fr       */
+/*   Updated: 2026/09/22 01:34:58 by mehaslan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,11 @@ long	atolong(const char *nptr)
 	while (*nptr >= '0' && *nptr <= '9')
 	{
         if (nbr > (9223372036854775807L - (*nptr - '0')) / 10)
-			return (2147483648L*sign);
+        {
+            if (sign == 1)
+                return (2147483648L);
+            return (-2147483649L);
+        }
 		nbr = (nbr * 10) + (*nptr++ - '0');
 	}
 	return (nbr * sign);

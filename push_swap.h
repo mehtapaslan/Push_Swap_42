@@ -6,7 +6,7 @@
 /*   By: mehaslan <mehaslan@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 16:42:40 by mehaslan          #+#    #+#             */
-/*   Updated: 2026/09/21 15:16:58 by mehaslan         ###   ########.fr       */
+/*   Updated: 2026/09/22 01:41:12 by mehaslan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,3 +46,7 @@ int		is_valid_numbers(char *str);
 int		is_duplicate(int *nbrs, int count, int nbr);
 int		add_nbr(t_data *data, int nbr);
 long	atolong(const char *nptr);
+void    error_exit(t_data *data, char **args);
+void    free_data(t_data *data);
+void    free_args(char **args);
+int     is_sorted(int *nbrs, int count);

@@ -6,7 +6,7 @@
 /*   By: mehaslan <mehaslan@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/19 00:29:27 by mehaslan          #+#    #+#             */
-/*   Updated: 2026/09/21 15:19:10 by mehaslan         ###   ########.fr       */
+/*   Updated: 2026/09/22 01:45:05 by mehaslan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void control_flags(char *str, t_data *data)
     else if (ft_strncmp(str, "--bench", 8) == 0)
         data->is_bench = 1;
     else
-        write(2, "Error\n", 6); //error function w free n exit
+        error_exit(data, NULL);
 }
 
 void control_numbers(char *str, t_data *data)
@@ -52,22 +52,33 @@ void control_numbers(char *str, t_data *data)
     i = 0;
     args = ft_split(str, ' ');
     if(!args || !args[0])
-        write(2, "Error\n", 6); //error function w free n exit
+        error_exit(data, args);
     while(args[i])
     {
         if(!is_valid_numbers(args[i]))
-            write(2, "Error\n", 6); //error function w free n exit
+            error_exit(data, args);
         nbr = atolong(args[i]);
         if (nbr < -2147483648 || nbr > 2147483647)
-			write(2, "Error\n", 6); //error function w free n exit
+			error_exit(data, args);
         if(is_duplicate(data->numbers, data->count, (int)nbr))
-            write(2, "Error\n", 6); // error function w free n exit
+            error_exit(data, args);
         if (!add_nbr(data, (int)nbr))
-            write(2, "Error\n", 6); // error function w free n exit
+            error_exit(data, args);
         i++;
     }
-    //free function
+    free_args(args);
 }
 
+int is_sorted(int *nbrs, int count)
+{
+    int i;
 
-
+    i = 0;
+    while(i < count-1)
+    {
+        if(nbrs[i] > nbrs[i+1])
+            return(0);
+        i++;
+    }
+    return(1);
+}
