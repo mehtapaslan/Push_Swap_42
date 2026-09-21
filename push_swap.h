@@ -6,11 +6,13 @@
 /*   By: mehaslan <mehaslan@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 16:42:40 by mehaslan          #+#    #+#             */
-/*   Updated: 2026/09/19 00:35:41 by mehaslan         ###   ########.fr       */
+/*   Updated: 2026/09/21 15:16:58 by mehaslan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <unistd.h>
+#include "./libft/libft.h"
 
 typedef enum e_strategy
 {
@@ -35,3 +37,12 @@ typedef struct s_stack
     struct s_stack   *next;
     struct s_stack   *prev;
 } t_stack;
+
+void	parse_args(int argc, char **argv, t_data *data);
+void	control_flags(char *str, t_data *data);
+void	control_numbers(char *str, t_data *data);
+void	init_data(t_data *data);
+int		is_valid_numbers(char *str);
+int		is_duplicate(int *nbrs, int count, int nbr);
+int		add_nbr(t_data *data, int nbr);
+long	atolong(const char *nptr);
