@@ -6,7 +6,7 @@
 /*   By: mehaslan <mehaslan@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/19 00:29:27 by mehaslan          #+#    #+#             */
-/*   Updated: 2026/09/19 02:39:26 by mehaslan         ###   ########.fr       */
+/*   Updated: 2026/09/21 13:39:10 by mehaslan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,14 @@ void control_numbers(char *str, t_data *data)
         write(2, "Error\n", 6); //error function w free n exit
     while(args[i])
     {
-        if(is_valid_numbers(args[i]) == 0)
+        if(!is_valid_numbers(args[i]))
             write(2, "Error\n", 6); //error function w free n exit
-        nbr = atol(args[i]);
+        nbr = atol(args[i]); // atol function
         if (nbr < -2147483648 || nbr > 2147483647)
 			write(2, "Error\n", 6); //error function w free n exit
-        //duplicate control
-        //save the number to data
+        if(is_duplicate(data->numbers, data->count, (int)nbr))
+            write(2, "Error\n", 6); // error function w free n exit
+        add_nbr(data, (int)nbr); // add function
         i++;
     }
     //free function for args
@@ -87,5 +88,41 @@ int is_valid_numbers(char *str)
 			return (0);
         str++;
     }
+    return(1);
+}
+
+int is_duplicate (int *nbrs, int count, int nbr)
+{
+    int i;
+    
+    i = 0;
+    while(i < count)
+    {
+        if(nbrs[i] == nbr)
+            return(1);
+        i++;
+    }
+    return(0);
+}
+
+int add_nbr(t_data *data, int nbr)
+{
+    int *new_arr;
+    int i;
+
+    new_arr = malloc(sizeof(int)*(data->count + 1));
+    if (!new_arr)
+		return (0);
+    i = 0;
+    while(i < data->count)
+    {
+        new_arr[i] = data->numbers[i];
+        i++;
+    }
+    new_arr[i] = nbr;
+    if (data->numbers)
+		free(data->numbers);
+    data->numbers = new_arr;
+	data->count++;
     return(1);
 }
