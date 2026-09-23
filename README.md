@@ -95,4 +95,8 @@ All sorting algorithms, the disorder-based adaptive strategy, and the circular l
 - Implemented all stack manipulation operations: `sa`, `sb`, `ss`, `pa`, `pb`, `ra`, `rb`, `rr`, `rra`, `rrb`, `rrr`.
 - Implemented the mandatory disorder metric (`compute_disorder`), measuring how far stack `a` is from being sorted (ratio of inverted pairs).
 - Implemented the Simple (O(n²)) sorting strategy using a selection-sort-based approach: repeatedly finds the minimum among the remaining elements, rotates it to the top using the shorter of `ra`/`rra`, pushes it to stack `b`, then pushes everything back to `a`.
-- **mehaslan**: *[detail your specific contributions here]*
+- **mehaslan**:
+- Designed and implemented the `t_data` state structure along with `parse_args` and `control_numbers` for command-line argument extraction, supporting both individual arguments and space-delimited string inputs via `ft_split`.
+- Implemented all configuration and strategy flag validations: `--bench`, `--simple`, `--medium`, `--complex`, `--adaptive`, ensuring these options strictly precede numeric inputs while actively rejecting redundant or conflicting flags.
+- Implemented the safe integer conversion mechanism (`atoi_safety`), checking character validity (`is_valid_numbers`) and using pointer-based feedback to enforce strict 32-bit signed limits, effectively preventing arithmetic overflow before it occurs.
+- Implemented the dynamic array population (`add_nbr`) and memory management system: repeatedly checks for duplicates (`is_duplicate`) during array reallocation, immediately intercepts invalid syntaxes, and guarantees zero memory leaks on any failure state via centralized cleanup (`error_exit`, `free_data`, `free_args`).
