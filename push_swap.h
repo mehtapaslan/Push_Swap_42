@@ -6,7 +6,7 @@
 /*   By: mehaslan <mehaslan@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 16:42:40 by mehaslan          #+#    #+#             */
-/*   Updated: 2026/09/22 01:41:12 by mehaslan         ###   ########.fr       */
+/*   Updated: 2026/09/23 04:24:59 by mehaslan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 
 typedef enum e_strategy
 {
-  STR_ADAPTIVE,
-  STR_SIMPLE,
-  STR_MEDIUM,
-  STR_COMPLEX
+    STR_NONE = 0,
+    STR_ADAPTIVE,
+    STR_SIMPLE,
+    STR_MEDIUM,
+    STR_COMPLEX
 } t_strategy;
 
 typedef struct s_data
@@ -45,11 +46,12 @@ void	init_data(t_data *data);
 int		is_valid_numbers(char *str);
 int		is_duplicate(int *nbrs, int count, int nbr);
 int		add_nbr(t_data *data, int nbr);
-long	atolong(const char *nptr);
+int     atoi_safety(const char *nptr, int *result);
 void    error_exit(t_data *data, char **args);
 void    free_data(t_data *data);
 void    free_args(char **args);
 int     is_sorted(int *nbrs, int count);
+void    set_strategy(char *str, t_data *data);
 t_stack *build_stack(int *numbers, int count);
 void	free_stack(t_stack **stack);
 void	sa(t_stack **a);

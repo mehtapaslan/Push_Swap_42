@@ -6,7 +6,7 @@
 /*   By: mehaslan <mehaslan@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/19 02:36:28 by mehaslan          #+#    #+#             */
-/*   Updated: 2026/09/22 01:34:58 by mehaslan         ###   ########.fr       */
+/*   Updated: 2026/09/23 03:36:27 by mehaslan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,84 +17,41 @@ void init_data (t_data *data)
     data->numbers = NULL;
 	data->count = 0;
 	data->is_bench = 0;
-	data->strategy = STR_ADAPTIVE;
+	data->strategy = STR_NONE;
 }
 
-int is_valid_numbers(char *str)
+int is_sorted(int *nbrs, int count)
 {
-    if(*str == '+' || *str == '-')
-        str++;
-    if (!*str)
-		return (0);
-    while(*str)
+    int i;
+
+    i = 0;
+    while(i < count-1)
     {
-        if (*str < '0' || *str > '9')
-			return (0);
-        str++;
+        if(nbrs[i] > nbrs[i+1])
+            return(0);
+        i++;
     }
     return(1);
 }
 
-int is_duplicate (int *nbrs, int count, int nbr)
+void parse_args (int argc, char **argv, t_data *data)
 {
     int i;
-    
-    i = 0;
-    while(i < count)
+
+    i = 1;
+    while(i < argc)
     {
-        if(nbrs[i] == nbr)
-            return(1);
+        if(argv[i][0] == '-' && argv[i][1] == '-')
+            control_flags(argv[i], data);
+        else
+            control_numbers(argv[i], data);
         i++;
     }
-    return(0);
-}
-
-int add_nbr(t_data *data, int nbr)
-{
-    int *new_arr;
-    int i;
-
-    new_arr = malloc(sizeof(int)*(data->count + 1));
-    if (!new_arr)
-		return (0);
-    i = 0;
-    while(i < data->count)
+    if(data->count == 0 || is_sorted(data->numbers, data->count))
     {
-        new_arr[i] = data->numbers[i];
-        i++;
+		free_data(data);
+	    exit(0);
     }
-    new_arr[i] = nbr;
-    if (data->numbers)
-		free(data->numbers);
-    data->numbers = new_arr;
-	data->count++;
-    return(1);
-}
-
-long	atolong(const char *nptr)
-{
-	long				nbr;
-	int				sign;
-
-	sign = 1;
-	nbr = 0;
-	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
-		nptr++;
-	if (*nptr == '+' || *nptr == '-')
-	{
-		if (*nptr == '-')
-			sign *= -1;
-		nptr++;
-	}
-	while (*nptr >= '0' && *nptr <= '9')
-	{
-        if (nbr > (9223372036854775807L - (*nptr - '0')) / 10)
-        {
-            if (sign == 1)
-                return (2147483648L);
-            return (-2147483649L);
-        }
-		nbr = (nbr * 10) + (*nptr++ - '0');
-	}
-	return (nbr * sign);
+    if (data->strategy == STR_NONE)
+		data->strategy = STR_ADAPTIVE;
 }
