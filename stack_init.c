@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mehaslan <mehaslan@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: beakduma <beakduma@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/20 04:18:19 by beakduma          #+#    #+#             */
-/*   Updated: 2026/09/21 15:25:41 by mehaslan         ###   ########.fr       */
+/*   Created: 2026/09/23 03:02:40 by beakduma          #+#    #+#             */
+/*   Updated: 2026/09/23 03:03:15 by beakduma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

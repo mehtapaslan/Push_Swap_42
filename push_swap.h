@@ -65,3 +65,4 @@ void	rrb (t_stack **b);
 void	rrr (t_stack **a, t_stack **b);
 double	compute_disorder(t_stack *a, int count);
 void	sort_simple (t_stack **a, t_stack **b, int count);
+2
