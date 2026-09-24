@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mehaslan <mehaslan@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: beakduma <beakduma@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 16:42:40 by mehaslan          #+#    #+#             */
-/*   Updated: 2026/09/23 04:24:59 by mehaslan         ###   ########.fr       */
+/*   Updated: 2026/09/23 16:51:30 by beakduma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,3 @@ void	rrb (t_stack **b);
 void	rrr (t_stack **a, t_stack **b);
 double	compute_disorder(t_stack *a, int count);
 void	sort_simple (t_stack **a, t_stack **b, int count);
-2
