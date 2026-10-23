@@ -6,7 +6,7 @@
 /*   By: mehaslan <mehaslan@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 16:42:40 by mehaslan          #+#    #+#             */
-/*   Updated: 2026/09/23 13:28:03 by mehaslan         ###   ########.fr       */
+/*   Updated: 2026/10/23 19:04:29 by mehaslan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,5 @@ void	rr (t_stack **a, t_stack **b);
 void	rra (t_stack **a);
 void	rrb (t_stack **b);
 void	rrr (t_stack **a, t_stack **b);
-double	compute_disorder(t_stack *a, int count);
+double  compute_disorder(t_stack **a, int count);
 void	sort_simple (t_stack **a, t_stack **b, int count);
