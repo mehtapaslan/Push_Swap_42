@@ -3,10 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   sort_complex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beakduma <beakduma@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: mehaslan <mehaslan@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/22 06:58:48 by beakduma          #+#    #+#             */
-/*   Updated: 2026/09/22 06:58:49 by beakduma         ###   ########.fr       */
+/*   Updated: 2026/09/25 01:37:02 by mehaslan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
+
+void index_stack(t_stack *a, int size)
+{
+    a->next
+    
+}
 
