@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sort_simple.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beakduma <beakduma@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: mehaslan <mehaslan@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/22 06:58:22 by beakduma          #+#    #+#             */
-/*   Updated: 2026/09/22 07:42:29 by beakduma         ###   ########.fr       */
+/*   Updated: 2026/10/23 22:23:59 by mehaslan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	find_minimum (t_stack *a, int size)
+int	find_minimum (t_stack *a, int size)
 {
 	t_stack	*current;
 	int	min_value;

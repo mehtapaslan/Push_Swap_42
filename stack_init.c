@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beakduma <beakduma@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: mehaslan <mehaslan@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/23 03:02:40 by beakduma          #+#    #+#             */
-/*   Updated: 2026/09/23 03:03:15 by beakduma         ###   ########.fr       */
+/*   Updated: 2026/10/23 22:30:16 by mehaslan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,31 @@ t_stack *build_stack(int *numbers, int count)
 			return (NULL);
 		}
 		append_node(&head, &last, new_node);
+		i++;
+	}
+	return (head);
+}
+
+t_stack	*copy_stack(t_stack *stack, int count)
+{
+	t_stack *head;
+	t_stack *new_node;
+	t_stack *last;
+	int	i;
+
+	head = NULL;
+	last = NULL;
+	i = 0;
+	while (i < count)
+	{
+		new_node = create_node(stack->value);
+		if (!new_node)
+		{
+			free_stack(&head);
+			return (NULL);
+		}
+		append_node(&head, &last, new_node);
+		stack = stack->next;
 		i++;
 	}
 	return (head);
