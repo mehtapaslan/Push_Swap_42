@@ -78,9 +78,8 @@ void	sort_medium(t_stack **a, t_stack **b, int count)
 	int	low;
 	int	high;
 
-	if (!*a || count < 2)
+	if (!*a || count < 2 || index_stack(*a, count) == -1)
 		return ;
-	rank_stack(*a, count);
 	chunk_size = count / chunk_count(count);
 	low = 0;
 	while (low < count)

@@ -28,9 +28,10 @@ int	main(int argc, char **argv)
 		error_exit(&data, NULL);
 	b = NULL;
 	disorder = compute_disorder(&a, data.count);
-	sort_stack(&a, &b, data.strategy, data.count);
+	if (!is_sorted(data.numbers, data.count))
+		sort_stack(&a, &b, data.strategy, data.count);
 	if (data.is_bench)
-		print_bench(data.strategy, disorder);
+		print_bench(data.strategy, disorder, data.count);
 	free_stack(&a);
 	free_stack(&b);
 	free_data(&data);

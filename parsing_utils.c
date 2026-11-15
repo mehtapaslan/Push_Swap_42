@@ -47,7 +47,7 @@ void	parse_args(int argc, char **argv, t_data *data)
 			control_numbers(argv[i], data);
 		i++;
 	}
-	if (data->count == 0 || is_sorted(data->numbers, data->count))
+	if (data->count == 0)
 	{
 		free_data(data);
 		exit(0);

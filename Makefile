@@ -12,9 +12,14 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(LIBFT) $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+
+$(LIBFT):
 	make -C $(LIBFT_DIR)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME) 
+
+%.o: %.c push_swap.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	make -C $(LIBFT_DIR) clean

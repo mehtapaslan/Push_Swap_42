@@ -96,7 +96,6 @@ int		index_stack(t_stack *a, int size);
 int		get_max_bits(int size);
 void	sort_adaptive(t_stack **a, t_stack **b, int count);
 void	sort_stack(t_stack **a, t_stack **b, t_strategy strategy, int count);
-void	rank_stack(t_stack *a, int size);
 int		chunk_count(int size);
 void	rotate_a_by(t_stack **a, int moves);
 void	rotate_b_by(t_stack **b, int moves);
@@ -104,6 +103,6 @@ int		find_index_pos(t_stack *b, int target);
 int		*op_counts(void);
 char	*op_name(t_op op);
 void	put_op(t_op op);
-void	print_bench(t_strategy strategy, double disorder);
+void	print_bench(t_strategy strategy, double disorder, int count);
 
 #endif

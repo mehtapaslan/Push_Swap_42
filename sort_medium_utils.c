@@ -6,37 +6,11 @@
 /*   By: beakduma <beakduma@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/22 06:58:36 by beakduma          #+#    #+#             */
-/*   Updated: 2026/09/22 06:58:37 by beakduma         ###   ########.fr       */
+/*   Updated: 2026/11/15 20:50:07 by beakduma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	rank_stack(t_stack *a, int size)
-{
-	t_stack	*node;
-	t_stack	*other;
-	int		i;
-	int		j;
-
-	node = a;
-	i = 0;
-	while (i < size)
-	{
-		node->index = 0;
-		other = a;
-		j = 0;
-		while (j < size)
-		{
-			if (other->value < node->value)
-				node->index++;
-			other = other->next;
-			j++;
-		}
-		node = node->next;
-		i++;
-	}
-}
 
 int	chunk_count(int size)
 {

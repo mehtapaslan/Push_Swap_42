@@ -17,7 +17,7 @@ void	sort_adaptive(t_stack **a, t_stack **b, int count)
 	double	disorder;
 
 	disorder = compute_disorder(a, count);
-	if (disorder < 0.2)
+	if (count <= 5 || disorder < 0.2)
 		sort_simple(a, b, count);
 	else if (disorder < 0.5)
 		sort_medium(a, b, count);
@@ -27,7 +27,7 @@ void	sort_adaptive(t_stack **a, t_stack **b, int count)
 
 void	sort_stack(t_stack **a, t_stack **b, t_strategy strategy, int count)
 {
-	if (count <= 5 || strategy == STR_SIMPLE)
+	if (strategy == STR_SIMPLE)
 		sort_simple(a, b, count);
 	else if (strategy == STR_MEDIUM)
 		sort_medium(a, b, count);
