@@ -17,6 +17,7 @@ int	main(int argc, char **argv)
 	t_data	data;
 	t_stack	*a;
 	t_stack	*b;
+	double	disorder;
 
 	if (argc < 2)
 		return (0);
@@ -24,12 +25,14 @@ int	main(int argc, char **argv)
 	parse_args(argc, argv, &data);
 	a = build_stack(data.numbers, data.count);
 	if (!a)
-		return (1);
+		error_exit(&data, NULL);
 	b = NULL;
-	free_data(&data);
-
-	//algorithms and strategies
-	
+	disorder = compute_disorder(&a, data.count);
+	sort_stack(&a, &b, data.strategy, data.count);
+	if (data.is_bench)
+		print_bench(data.strategy, disorder);
 	free_stack(&a);
-	return(0);
+	free_stack(&b);
+	free_data(&data);
+	return (0);
 }

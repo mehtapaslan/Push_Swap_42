@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	separate (t_stack **from, t_stack *node)
+static void	separate(t_stack **from, t_stack *node)
 {
 	if (node->next == node)
 		*from = NULL;
@@ -24,7 +24,7 @@ static void	separate (t_stack **from, t_stack *node)
 	}
 }
 
-static void	attach (t_stack **to, t_stack *node)
+static void	attach(t_stack **to, t_stack *node)
 {
 	if (!*to)
 	{
@@ -40,27 +40,28 @@ static void	attach (t_stack **to, t_stack *node)
 	}
 	*to = node;
 }
+
 static void	move(t_stack **from, t_stack **to)
 {
-	t_stack *node;
+	t_stack	*node;
 
 	node = *from;
-	separate (from, node);
-	attach (to, node);
+	separate(from, node);
+	attach(to, node);
 }
 
-void	pa (t_stack **a, t_stack **b)
+void	pa(t_stack **a, t_stack **b)
 {
 	if (!*b)
 		return ;
-	move (b, a);
-	ft_putendl_fd ("pa", 1);
+	move(b, a);
+	put_op(OP_PA);
 }
 
-void	pb (t_stack **a, t_stack **b)
+void	pb(t_stack **a, t_stack **b)
 {
 	if (!*a)
 		return ;
-	move (a, b);
-	ft_putendl_fd ("pb", 1);
+	move(a, b);
+	put_op(OP_PB);
 }

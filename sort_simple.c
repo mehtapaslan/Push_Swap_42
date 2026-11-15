@@ -12,12 +12,12 @@
 
 #include "push_swap.h"
 
-int	find_minimum (t_stack *a, int size)
+int	find_minimum(t_stack *a, int size)
 {
 	t_stack	*current;
-	int	min_value;
-	int	min_index;
-	int	i;
+	int		min_value;
+	int		min_index;
+	int		i;
 
 	current = a;
 	min_value = current->value;
@@ -35,14 +35,36 @@ int	find_minimum (t_stack *a, int size)
 	}
 	return (min_index);
 }
-void	sort_simple (t_stack **a, t_stack **b, int count)
+
+/*
+** Sorts 2 or 3 elements in at most 2 operations:
+** biggest goes to the bottom first (ra / rra), then the top two are fixed.
+*/
+static void	sort_three(t_stack **a, int size)
+{
+	t_stack	*top;
+
+	if (size == 3)
+	{
+		top = *a;
+		if (top->value > top->next->value && top->value > top->prev->value)
+			ra(a);
+		else if (top->next->value > top->value
+			&& top->next->value > top->prev->value)
+			rra(a);
+	}
+	if (size >= 2 && (*a)->value > (*a)->next->value)
+		sa(a);
+}
+
+void	sort_simple(t_stack **a, t_stack **b, int count)
 {
 	int	remaining;
 	int	min_index;
 	int	rra_count;
 
 	remaining = count;
-	while (remaining > 0)
+	while (remaining > 3)
 	{
 		min_index = find_minimum (*a, remaining);
 		if (min_index <= remaining - min_index)
@@ -59,6 +81,7 @@ void	sort_simple (t_stack **a, t_stack **b, int count)
 		pb (a, b);
 		remaining--;
 	}
+	sort_three(a, remaining);
 	while (*b)
 		pa (a, b);
 }

@@ -34,21 +34,18 @@ static int	swap(t_stack **stack)
 void	sa(t_stack **a)
 {
 	if (swap(a))
-		ft_putendl_fd("sa", 1);
+		put_op(OP_SA);
 }
 
 void	sb(t_stack **b)
 {
 	if (swap(b))
-		ft_putendl_fd("sb", 1);
+		put_op(OP_SB);
 }
 
 void	ss(t_stack **a, t_stack **b)
 {
 	swap(a);
 	swap(b);
-	ft_putendl_fd("ss", 1);
+	put_op(OP_SS);
 }
-
-// mainde şöyle çağırılacak; sa(&data->a);
-

@@ -12,28 +12,28 @@
 
 #include "push_swap.h"
 
-static void	rev_rotate (t_stack **stack)
+static void	rev_rotate(t_stack **stack)
 {
 	if (!*stack || (*stack)->next == *stack)
 		return ;
 	*stack = (*stack)->prev;
 }
 
-void	rra (t_stack **a)
+void	rra(t_stack **a)
 {
-	rev_rotate (a);
-	ft_putendl_fd ("rra", 1);
+	rev_rotate(a);
+	put_op(OP_RRA);
 }
 
-void	rrb (t_stack **b)
+void	rrb(t_stack **b)
 {
-	rev_rotate (b);
-	ft_putendl_fd ("rrb", 1);
+	rev_rotate(b);
+	put_op(OP_RRB);
 }
 
-void	rrr (t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b)
 {
-	rev_rotate (a);
-	rev_rotate (b);
-	ft_putendl_fd ("rrr", 1);
+	rev_rotate(a);
+	rev_rotate(b);
+	put_op(OP_RRR);
 }

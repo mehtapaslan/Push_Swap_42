@@ -12,36 +12,36 @@
 
 #include "push_swap.h"
 
-void error_exit(t_data *data, char **args)
+void	error_exit(t_data *data, char **args)
 {
-    if (args)
-        free_args(args);
-    if (data && data->numbers)
-    {
-        free(data->numbers);
-        data->numbers = NULL;
-    }
-    write(2, "Error\n", 6);
+	if (args)
+		free_args(args);
+	if (data && data->numbers)
+	{
+		free(data->numbers);
+		data->numbers = NULL;
+	}
+	write(2, "Error\n", 6);
 	exit(1);
 }
 
-void free_data(t_data *data)
+void	free_data(t_data *data)
 {
-    if(data && data->numbers)
-    {
-        free(data->numbers);
-        data->numbers = NULL;
-    }
+	if (data && data->numbers)
+	{
+		free(data->numbers);
+		data->numbers = NULL;
+	}
 }
 
-void free_args(char **args)
+void	free_args(char **args)
 {
-    char **tmp;
-    
-    if(!args)
-        return;
-    tmp = args;
-    while(*tmp)
-        free(*tmp++);
-    free(args);
+	char	**tmp;
+
+	if (!args)
+		return ;
+	tmp = args;
+	while (*tmp)
+		free(*tmp++);
+	free(args);
 }
