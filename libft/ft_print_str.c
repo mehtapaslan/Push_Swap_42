@@ -14,8 +14,8 @@
 
 void	ft_print_str(int *counter, char *str)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	if (!str)
 		str = "(null)";

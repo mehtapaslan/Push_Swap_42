@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void 	ft_print_ptr(int *counter, unsigned long ptr)
+void	ft_print_ptr(int *counter, unsigned long ptr)
 {
 	if (!ptr)
 	{
@@ -21,6 +21,6 @@ void 	ft_print_ptr(int *counter, unsigned long ptr)
 		return ;
 	}
 	write(1, "0x", 2);
-	(*counter)+=2;
+	(*counter) += 2;
 	ft_print_hex(counter, ptr, 'x');
 }
