@@ -6,7 +6,7 @@
 /*   By: mehaslan <mehaslan@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 16:42:40 by mehaslan          #+#    #+#             */
-/*   Updated: 2026/10/23 22:31:06 by mehaslan         ###   ########.fr       */
+/*   Updated: 2026/11/15 04:07:34 by mehaslan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,10 @@ void	rra (t_stack **a);
 void	rrb (t_stack **b);
 void	rrr (t_stack **a, t_stack **b);
 double  compute_disorder(t_stack **a, int count);
-int	find_minimum (t_stack *a, int size);
+int	    find_minimum (t_stack *a, int size);
 void	sort_simple (t_stack **a, t_stack **b, int count);
 void	sort_medium(t_stack **a, t_stack **b, int count);
+void    sort_complex(t_stack **a, t_stack **b, int size);
 void	rank_stack(t_stack *a, int size);
 int		chunk_count(int size);
 void	rotate_a_by(t_stack **a, int moves);
