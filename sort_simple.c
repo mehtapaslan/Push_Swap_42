@@ -36,10 +36,6 @@ int	find_minimum(t_stack *a, int size)
 	return (min_index);
 }
 
-/*
-** Sorts 2 or 3 elements in at most 2 operations:
-** biggest goes to the bottom first (ra / rra), then the top two are fixed.
-*/
 static void	sort_three(t_stack **a, int size)
 {
 	t_stack	*top;

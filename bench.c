@@ -6,7 +6,7 @@
 /*   By: beakduma <beakduma@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/22 06:58:36 by beakduma          #+#    #+#             */
-/*   Updated: 2026/11/15 17:58:58 by beakduma         ###   ########.fr       */
+/*   Updated: 2026/11/17 01:45:26 by beakduma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,6 @@ static void	put_op_line(t_op from, t_op to)
 	ft_putchar_fd('\n', 2);
 }
 
-/*
-** disorder must be computed before sorting (on the initial stack a).
-** Everything is written to stderr so stdout keeps only the operations.
-*/
 void	print_bench(t_strategy strategy, double disorder, int count)
 {
 	put_disorder(disorder);
