@@ -6,7 +6,7 @@
 /*   By: mehaslan <mehaslan@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/22 06:58:48 by beakduma          #+#    #+#             */
-/*   Updated: 2026/11/15 20:18:22 by mehaslan         ###   ########.fr       */
+/*   Updated: 2026/11/17 09:08:26 by mehaslan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 static int	process_b(t_stack **a, t_stack **b, int bit, int count)
 {
-	int	ones;
+	int	pushed_a;
 
-	ones = 0;
+	pushed_a = 0;
 	while (count--)
 	{
 		if (((*b)->index >> bit) & 1)
 		{
 			pa(a, b);
-			ones++;
+			pushed_a++;
 		}
 		else
 			rb(b);
 	}
-	return (ones);
+	return (pushed_a);
 }
 
 static int	process_a(t_stack **a, t_stack **b, int bit, int count)
 {
-	int	pushed;
+	int	pushed_b;
 
-	pushed = 0;
+	pushed_b = 0;
 	while (count--)
 	{
 		if (((*a)->index >> bit) & 1)
@@ -42,30 +42,30 @@ static int	process_a(t_stack **a, t_stack **b, int bit, int count)
 		else
 		{
 			pb(a, b);
-			pushed++;
+			pushed_b++;
 		}
 	}
-	return (pushed);
+	return (pushed_b);
 }
 
 void	sort_complex(t_stack **a, t_stack **b, int size)
 {
 	int	max_bits;
 	int	bit;
-	int	nb;
-	int	ones;
-	int	pushed;
+	int	nbr;
+	int	pushed_a;
+	int	pushed_b;
 
 	if (index_stack(*a, size) == -1)
 		return ;
 	max_bits = get_max_bits(size);
 	bit = 0;
-	nb = 0;
+	nbr = 0;
 	while (bit < max_bits)
 	{
-		ones = process_b(a, b, bit, nb);
-		pushed = process_a(a, b, bit, size - nb + ones);
-		nb = nb - ones + pushed;
+		pushed_a = process_b(a, b, bit, nbr);
+		pushed_b = process_a(a, b, bit, size - nbr + pushed_a);
+		nbr = nbr - pushed_a + pushed_b;
 		bit++;
 	}
 	while (*b)
