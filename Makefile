@@ -1,11 +1,16 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
-SRC = main.c parsing_numbers.c parsing_flags.c parsing_utils.c parsing_errors.c \
-		push.c swap.c stack_init.c rotate.c rev_rotate.c \
-		compute_disorder.c sort_simple.c sort_medium.c sort_medium_utils.c \
-		sort_complex.c sort_complex_utils.c sort_adaptive.c \
-		op_counter.c bench.c
+CFLAGS = -Wall -Wextra -Werror -I.
+SRC = main.c \
+		parsing/parsing_numbers.c parsing/parsing_flags.c \
+		parsing/parsing_utils.c parsing/parsing_errors.c \
+		operations/push.c operations/swap.c operations/rotate.c \
+		operations/rev_rotate.c \
+		utils/stack_init.c utils/compute_disorder.c \
+		utils/op_counter.c utils/bench.c \
+		sorting/sort_simple.c sorting/sort_medium.c \
+		sorting/sort_medium_utils.c sorting/sort_complex.c \
+		sorting/sort_complex_utils.c sorting/sort_adaptive.c
 OBJ = $(SRC:.c=.o)
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
