@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   op_counter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beakduma <beakduma@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: mehaslan <mehaslan@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/22 06:58:36 by beakduma          #+#    #+#             */
-/*   Updated: 2026/09/22 06:58:37 by beakduma         ###   ########.fr       */
+/*   Updated: 2026/11/18 17:23:59 by mehaslan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ char	*op_name(t_op op)
 
 void	put_op(t_op op)
 {
-	op_counts()[op]++;
-	ft_putendl_fd(op_name(op), 1);
+	int		*counts;
+	char	*name;
+
+	counts = op_counts();
+	name = op_name(op);
+	counts[op]++;
+	ft_putendl_fd(name, 1);
 }
