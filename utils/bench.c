@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bench.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beakduma <beakduma@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: mehaslan <mehaslan@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/22 06:58:36 by beakduma          #+#    #+#             */
-/*   Updated: 2026/11/17 01:45:26 by beakduma         ###   ########.fr       */
+/*   Updated: 2026/11/18 00:22:21 by mehaslan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,12 @@ static int	total_ops(void)
 	return (total);
 }
 
-static void	put_op_line(t_op from, t_op to)
+static void	put_opr(t_op op)
 {
-	ft_putstr_fd("[bench] ", 2);
-	while (from <= to)
-	{
-		ft_putstr_fd(op_name(from), 2);
-		ft_putstr_fd(": ", 2);
-		ft_putnbr_fd(op_counts()[from], 2);
-		ft_putstr_fd("  ", 2);
-		from++;
-	}
-	ft_putchar_fd('\n', 2);
+	ft_putstr_fd(op_name(op), 2);
+	ft_putstr_fd(": ", 2);
+	ft_putnbr_fd(op_counts()[op], 2);
+	ft_putstr_fd("  ", 2);
 }
 
 void	print_bench(t_strategy strategy, double disorder, int count)
@@ -75,7 +69,18 @@ void	print_bench(t_strategy strategy, double disorder, int count)
 	put_strategy(strategy, disorder, count);
 	ft_putstr_fd("[bench] total_ops:  ", 2);
 	ft_putnbr_fd(total_ops(), 2);
-	ft_putchar_fd('\n', 2);
-	put_op_line(OP_SA, OP_PB);
-	put_op_line(OP_RA, OP_RRR);
+	ft_putstr_fd("\n[bench] ", 2);
+	put_opr(OP_SA);
+	put_opr(OP_SB);
+	put_opr(OP_SS);
+	put_opr(OP_PA);
+	put_opr(OP_PB);
+	ft_putstr_fd("\n[bench] ", 2);
+	put_opr(OP_RA);
+	put_opr(OP_RB);
+	put_opr(OP_RR);
+	put_opr(OP_RRA);
+	put_opr(OP_RRB);
+	put_opr(OP_RRR);
+	ft_putstr_fd("\n", 2);
 }
